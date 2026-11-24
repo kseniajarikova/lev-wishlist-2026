@@ -24,6 +24,7 @@ const key = id => `lev-wishlist-2026:${id}`;
 const mine = id => !!localStorage.getItem(key(id));
 const money = amount => amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'До 2000 ₽ — проверь цену';
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const posterLabel = category => ({'Игры':'давай играть!','Творчество':'придумай сам','Nado':'волчки в бой!','Одежда и спорт':'для приключений'})[category];
 
 function notice(message) {
   const element = document.getElementById('notice');
@@ -39,7 +40,7 @@ function render() {
     const selected = state.taken.has(g.id);
     const own = selected && mine(g.id);
     const label = state.busy === g.id ? 'Сохраняем…' : own ? 'Отменить мой выбор' : selected ? 'Уже выбрали' : 'Забронировать';
-    return `<article class="card ${selected ? 'selected' : ''}"><div class="visual ${escapeHTML(g.color)}"><span class="number">${String(index + 1).padStart(2, '0')}</span><span class="symbol">${escapeHTML(g.symbol)}</span><span class="corner">✳</span></div><div class="card-body"><div class="badges"><span>${escapeHTML(g.category)}</span>${g.joint ? '<span class="joint">Совместный</span>' : ''}</div><h3>${escapeHTML(g.title)}</h3><p class="detail">${escapeHTML(g.detail)}</p><p class="price">${money(g.price)}${g.approx ? '<small> ориентир</small>' : ''}</p><a class="shop" href="${escapeHTML(g.url)}" target="_blank" rel="noopener noreferrer">${g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'} <span aria-hidden="true">↗</span></a><div class="reservation"><button class="reserve ${own ? 'own' : ''}" data-gift="${escapeHTML(g.id)}" ${!state.ready || state.busy || (selected && !own) ? 'disabled' : ''}>${label}</button><span class="status ${selected ? 'taken' : 'free'}">${own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>`;
+    return `<article class="card ${selected ? 'selected' : ''}"><div class="visual ${escapeHTML(g.color)}" aria-hidden="true"><span class="number">${String(index + 1).padStart(2, '0')}</span><span class="symbol">${escapeHTML(g.symbol)}</span><span class="corner">✳</span><span class="poster-label">${escapeHTML(posterLabel(g.category))}</span></div><div class="card-body"><div class="badges"><span>${escapeHTML(g.category)}</span>${g.joint ? '<span class="joint">Совместный</span>' : ''}</div><h3>${escapeHTML(g.title)}</h3><p class="detail">${escapeHTML(g.detail)}</p><p class="price">${money(g.price)}${g.approx ? '<small> ориентир</small>' : ''}</p><a class="shop" href="${escapeHTML(g.url)}" target="_blank" rel="noopener noreferrer">${g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'}</a><div class="reservation"><button class="reserve ${own ? 'own' : ''}" data-gift="${escapeHTML(g.id)}" ${!state.ready || state.busy || (selected && !own) ? 'disabled' : ''}>${label}</button><span class="status ${selected ? 'taken' : 'free'}">${own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>`;
   }).join('');
 }
 
