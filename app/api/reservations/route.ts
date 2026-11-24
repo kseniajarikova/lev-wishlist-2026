@@ -27,7 +27,7 @@ async function parse(request: NextRequest) {
 export async function GET() {
   try {
     const rows = await env.DB.prepare('SELECT gift_id FROM reservations').all<{ gift_id: string }>();
-    return NextResponse.json({ reserved: rows.results.map(r => r.gift_id) }, { headers });
+    return NextResponse.json({ reserved: rows.results.map(r => r.gift_id).filter(id => valid.has(id)) }, { headers });
   } catch {
     return NextResponse.json({ error: 'Временно недоступно' }, { status: 503, headers });
   }
