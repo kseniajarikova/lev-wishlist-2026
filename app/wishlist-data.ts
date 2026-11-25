@@ -25,6 +25,5 @@ export const gifts: Gift[] = [
   {id:'screechers-nightweaver',title:'Скритчер Найтвивер',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030910/',symbol:'✶',color:'mint'},
   {id:'screechers-revadactyl',title:'Скритчер Ревадактиль',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030908/',symbol:'➶',color:'peach'},
   {id:'screechers-jayhawk',title:'Скритчер Джейхок',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030907/',symbol:'✷',color:'blue'},
-  {id:'screechers-tirekker',title:'Скритчер Ти-Реккер',detail:'Машинка-трансформер с магнитными дисками; упаковка справа на фото.',category:'Скритчеры',price:2499,approx:true,url:'https://www.detmir.ru/product/index/id/3104181/',symbol:'★',color:'yellow'},
   {id:'swim-goggles',title:'Очки для плавания Mad Wave',detail:'Детские Simpler II Junior. Переносица регулируется; проверь посадку.',category:'Одежда и спорт',price:1190,approx:true,url:'https://td-sport.ru/catalog/yuniorskie-detskie-ochki/ochki-dlya-plavaniya-mad-wave-simpler-ii-junior-m041107.html',symbol:'◡◡',color:'mint'},
 ];
