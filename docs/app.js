@@ -8,10 +8,10 @@ const gifts = [
   {id:'nado-bow',title:'Infinity Nado: волчок и лук',detail:'Трайб Стандарт Fiery Blast Wheel.',category:'Nado',price:2874,approx:true,url:'https://www.ozon.ru/product/infiniti-nado-volchok-i-luk-trayb-standart-fiery-blast-wheel-infinity-nado-3372277031/',symbol:'➶',color:'peach'},
   {id:'nado-blaster',title:'Infinity Nado: волчок и бластер',detail:'Трайб Стандарт Сандер Страйк, пускатель в виде пистолета.',category:'Nado',price:3134,approx:true,url:'https://market.yandex.ru/card/infiniti-nado-volchok-blaster-trayb-standart-sander-strayk-tm-infinity-nado/6018762471',symbol:'✷',color:'violet'},
   {id:'karlsson-haus',title:'Билет в театр Karlsson Haus',detail:'Выбери детский спектакль из афиши. Билет нужен и ребёнку, и сопровождающему взрослому.',category:'Впечатления',priceLabel:'Цена зависит от спектакля',url:'https://www.karlssonhaus.ru/',symbol:'★',color:'peach'},
-  {id:'podpisnie-certificate',title:'Сертификат в «Подписные издания»',detail:'Лёва сам выберет книгу. Есть электронный и бумажный сертификаты; действует в Петербурге и на сайте.',category:'Впечатления',priceLabel:'Номинал от 500 ₽',url:'https://www.podpisnie.ru/categories/podarki/podarochnye-sertifikaty/',symbol:'✦',color:'yellow'},
-  {id:'project-l-finesse',title:'Проект L: Уловки',detail:'Дополнение к базовой игре: жетоны целей и монеты дают дополнительные действия и новые тактические цепочки.',category:'Игры',price:1650,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-ulovki/102811668233',symbol:'L',color:'violet'},
-  {id:'project-l-ghost',title:'Проект L: Призрачная фигура',detail:'Дополнение к базовой игре: чёрные фигуры 5-го уровня, двойное улучшение и действие «воплотить призрака».',category:'Игры',price:2150,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-prizrachnaya-figura-dopolneniye/102811353906',symbol:'◈',color:'mint'},
-  {id:'cosmic-pinball',title:'Attivio: Космический пинбол',detail:'Настольный пинбол с шариками и рычагами — именно коробка с фото из «Детского мира».',category:'Игры',price:1599,approx:true,url:'https://www.detmir.ru/product/index/id/6703138/',symbol:'◎',color:'blue'},
+  {id:'podpisnie-certificate',title:'Сертификат в «Подписные издания»',detail:'Лёва сам выберет книгу. Есть электронный и бумажный сертификаты; действует в Петербурге и на сайте.',category:'Впечатления',priceLabel:'Номинал от ~ 500 ₽',url:'https://www.podpisnie.ru/categories/podarki/podarochnye-sertifikaty/',symbol:'✦',color:'yellow'},
+  {id:'project-l-finesse',title:'Проект L: Уловки',detail:'Дополнение к базовой игре: жетоны целей и монеты дают дополнительные действия и новые тактические цепочки. Базовая игра у Льва есть.',category:'Игры',price:1650,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-ulovki/102811668233',symbol:'L',color:'violet'},
+  {id:'project-l-ghost',title:'Проект L: Призрачная фигура',detail:'Дополнение к базовой игре: чёрные фигуры 5-го уровня, двойное улучшение и действие «воплотить призрака». Базовая игра у Льва есть.',category:'Игры',price:2150,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-prizrachnaya-figura-dopolneniye/102811353906',symbol:'◈',color:'mint'},
+  {id:'cosmic-pinball',title:'Attivio: Космический пинбол',detail:'Настольный пинбол с шариками и рычагами.',category:'Игры',price:1599,approx:true,url:'https://www.detmir.ru/product/index/id/6703138/',symbol:'◎',color:'blue'},
   {id:'nado-saber',title:'Infinity Nado: Воздушная сабля',detail:'Ориджинс Суприм Saber: металлический волчок с пусковой установкой, как на фото.',category:'Nado',price:3799,approx:true,url:'https://www.detmir.ru/product/index/id/6732985/',symbol:'✷',color:'peach'},
   {id:'nado-whisker',title:'Infinity Nado: Небесный Вихрь',detail:'Ориджинс Суприм Whisker: волчок с пусковой установкой из серии на фото.',category:'Nado',price:3799,approx:true,url:'https://www.detmir.ru/product/index/id/6732981/',symbol:'✳',color:'mint'},
   {id:'nado-dashing',title:'Infinity Nado: Разящий удар',detail:'Ориджинс Арес Dashing Fist: металлический волчок с пусковой установкой.',category:'Nado',price:2799,approx:true,url:'https://www.detmir.ru/product/index/id/6732977/',symbol:'◉',color:'blue'},
@@ -23,12 +23,12 @@ const gifts = [
   {id:'screechers-revadactyl',title:'Скритчер Ревадактиль',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030908/',symbol:'➶',color:'peach'},
   {id:'screechers-jayhawk',title:'Скритчер Джейхок',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030907/',symbol:'✷',color:'blue'},
   {id:'screechers-tirekker',title:'Скритчер Ти-Реккер',detail:'Машинка-трансформер с магнитными дисками; упаковка справа на фото.',category:'Скритчеры',price:2499,approx:true,url:'https://www.detmir.ru/product/index/id/3104181/',symbol:'★',color:'yellow'},
-  {id:'swim-goggles',title:'Очки для плавания Mad Wave',detail:'Детские Simpler II Junior. Переносица регулируется; проверь посадку.',category:'Одежда и спорт',price:1190,approx:true,url:'https://td-sport.ru/catalog/yuniorskie-detskie-ochki/ochki-dlya-plavaniya-mad-wave-simpler-ii-junior-m041107.html',symbol:'◡◡',color:'mint'},
+  {id:'swim-goggles',title:'Очки для плавания Mad Wave',detail:'Детские Simpler II Junior.',category:'Одежда и спорт',price:1190,approx:true,url:'https://td-sport.ru/catalog/yuniorskie-detskie-ochki/ochki-dlya-plavaniya-mad-wave-simpler-ii-junior-m041107.html',symbol:'◡◡',color:'mint'},
 ];
 const state = { taken: new Set(), ready: false, busy: null, filter: 'all' };
 const key = id => `lev-wishlist-2026:${id}`;
 const mine = id => !!localStorage.getItem(key(id));
-const money = (amount, label) => label || (amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'Уточни цену');
+const money = (amount, label) => label || (amount ? `~ ${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'Уточни цену');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const posterLabel = category => ({'Творчество':'придумай сам','Игры':'давай играть!','Nado':'волчки в бой!','Скритчеры':'переворот!','Одежда и спорт':'для приключений','Впечатления':'сюрприз!'})[category];
 
@@ -107,6 +107,16 @@ document.querySelector('.filters').addEventListener('click', event => {
 document.getElementById('gifts').addEventListener('click', event => {
   const button = event.target.closest('[data-gift]');
   if (button) void choose(gifts.find(g => g.id === button.dataset.gift));
+});
+document.getElementById('copy-phone').addEventListener('click', async event => {
+  const button = event.currentTarget;
+  try {
+    await navigator.clipboard.writeText('+7 960 2539357');
+  } catch {
+    const input = document.createElement('textarea'); input.value = '+7 960 2539357'; input.style.position = 'fixed'; input.style.opacity = '0'; document.body.append(input); input.select(); document.execCommand('copy'); input.remove();
+  }
+  button.textContent = 'Номер скопирован';
+  window.setTimeout(() => { button.textContent = 'Скопировать номер'; }, 1800);
 });
 render();
 void refresh();
