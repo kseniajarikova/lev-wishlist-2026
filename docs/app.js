@@ -7,14 +7,30 @@ const gifts = [
   {id:'nado-arena',title:'Арена Infinity Nado',detail:'Для баттлов волчков. Арена 42 × 42 см, без волчков.',category:'Nado',price:1699,url:'https://www.detmir.ru/product/index/id/3141859/',symbol:'◎',color:'blue'},
   {id:'nado-bow',title:'Infinity Nado: волчок и лук',detail:'Трайб Стандарт Fiery Blast Wheel.',category:'Nado',price:2874,approx:true,url:'https://www.ozon.ru/product/infiniti-nado-volchok-i-luk-trayb-standart-fiery-blast-wheel-infinity-nado-3372277031/',symbol:'➶',color:'peach'},
   {id:'nado-blaster',title:'Infinity Nado: волчок и бластер',detail:'Трайб Стандарт Сандер Страйк, пускатель в виде пистолета.',category:'Nado',price:3134,approx:true,url:'https://market.yandex.ru/card/infiniti-nado-volchok-blaster-trayb-standart-sander-strayk-tm-infinity-nado/6018762471',symbol:'✷',color:'violet'},
+  {id:'karlsson-haus',title:'Билет в театр Karlsson Haus',detail:'Выбери детский спектакль из афиши. Билет нужен и ребёнку, и сопровождающему взрослому.',category:'Впечатления',priceLabel:'Цена зависит от спектакля',url:'https://www.karlssonhaus.ru/',symbol:'★',color:'peach'},
+  {id:'podpisnie-certificate',title:'Сертификат в «Подписные издания»',detail:'Лёва сам выберет книгу. Есть электронный и бумажный сертификаты; действует в Петербурге и на сайте.',category:'Впечатления',priceLabel:'Номинал от 500 ₽',url:'https://www.podpisnie.ru/categories/podarki/podarochnye-sertifikaty/',symbol:'✦',color:'yellow'},
+  {id:'project-l-finesse',title:'Проект L: Уловки',detail:'Дополнение к базовой игре: жетоны целей и монеты дают дополнительные действия и новые тактические цепочки.',category:'Игры',price:1650,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-ulovki/102811668233',symbol:'L',color:'violet'},
+  {id:'project-l-ghost',title:'Проект L: Призрачная фигура',detail:'Дополнение к базовой игре: чёрные фигуры 5-го уровня, двойное улучшение и действие «воплотить призрака».',category:'Игры',price:2150,approx:true,url:'https://market.yandex.ru/card/nastolnaya-igra-crowd-games-proyekt-l-prizrachnaya-figura-dopolneniye/102811353906',symbol:'◈',color:'mint'},
+  {id:'cosmic-pinball',title:'Attivio: Космический пинбол',detail:'Настольный пинбол с шариками и рычагами — именно коробка с фото из «Детского мира».',category:'Игры',price:1599,approx:true,url:'https://www.detmir.ru/product/index/id/6703138/',symbol:'◎',color:'blue'},
+  {id:'nado-saber',title:'Infinity Nado: Воздушная сабля',detail:'Ориджинс Суприм Saber: металлический волчок с пусковой установкой, как на фото.',category:'Nado',price:3799,approx:true,url:'https://www.detmir.ru/product/index/id/6732985/',symbol:'✷',color:'peach'},
+  {id:'nado-whisker',title:'Infinity Nado: Небесный Вихрь',detail:'Ориджинс Суприм Whisker: волчок с пусковой установкой из серии на фото.',category:'Nado',price:3799,approx:true,url:'https://www.detmir.ru/product/index/id/6732981/',symbol:'✳',color:'mint'},
+  {id:'nado-dashing',title:'Infinity Nado: Разящий удар',detail:'Ориджинс Арес Dashing Fist: металлический волчок с пусковой установкой.',category:'Nado',price:2799,approx:true,url:'https://www.detmir.ru/product/index/id/6732977/',symbol:'◉',color:'blue'},
+  {id:'blast-galer',title:'Скритчер Бласт Чардж: Геллер',detail:'Большой набор с машинкой-трансформером, бластером и дисками.',category:'Скритчеры',price:3699,approx:true,url:'https://www.detmir.ru/product/index/id/6646040/',symbol:'➶',color:'blue'},
+  {id:'blast-hellstorm',title:'Скритчер Бласт Чардж: Хэллшторм',detail:'Большой набор с машинкой-трансформером, бластером и дисками.',category:'Скритчеры',price:3699,approx:true,url:'https://www.detmir.ru/product/index/id/6646041/',symbol:'✹',color:'peach'},
+  {id:'blast-solent',title:'Скритчер Бласт Чардж: Солент',detail:'Большой набор с машинкой-трансформером, бластером и дисками.',category:'Скритчеры',price:3699,approx:true,url:'https://www.detmir.ru/product/index/id/6646043/',symbol:'⚡',color:'yellow'},
+  {id:'screechers-nitebite',title:'Скритчер Найтбайт',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030911/',symbol:'✦',color:'violet'},
+  {id:'screechers-nightweaver',title:'Скритчер Найтвивер',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030910/',symbol:'✶',color:'mint'},
+  {id:'screechers-revadactyl',title:'Скритчер Ревадактиль',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030908/',symbol:'➶',color:'peach'},
+  {id:'screechers-jayhawk',title:'Скритчер Джейхок',detail:'Машинка-трансформер с магнитными дисками, как на фото.',category:'Скритчеры',price:1799,approx:true,url:'https://www.detmir.ru/product/index/id/3030907/',symbol:'✷',color:'blue'},
+  {id:'screechers-tirekker',title:'Скритчер Ти-Реккер',detail:'Машинка-трансформер с магнитными дисками; упаковка справа на фото.',category:'Скритчеры',price:2499,approx:true,url:'https://www.detmir.ru/product/index/id/3104181/',symbol:'★',color:'yellow'},
   {id:'swim-goggles',title:'Очки для плавания Mad Wave',detail:'Детские Simpler II Junior. Переносица регулируется; проверь посадку.',category:'Одежда и спорт',price:1190,approx:true,url:'https://td-sport.ru/catalog/yuniorskie-detskie-ochki/ochki-dlya-plavaniya-mad-wave-simpler-ii-junior-m041107.html',symbol:'◡◡',color:'mint'},
 ];
 const state = { taken: new Set(), ready: false, busy: null, filter: 'all' };
 const key = id => `lev-wishlist-2026:${id}`;
 const mine = id => !!localStorage.getItem(key(id));
-const money = amount => amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'До 2000 ₽ — проверь цену';
+const money = (amount, label) => label || (amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'Уточни цену');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const posterLabel = category => ({'Творчество':'придумай сам','Nado':'волчки в бой!','Одежда и спорт':'для приключений'})[category];
+const posterLabel = category => ({'Творчество':'придумай сам','Игры':'давай играть!','Nado':'волчки в бой!','Скритчеры':'переворот!','Одежда и спорт':'для приключений','Впечатления':'сюрприз!'})[category];
 
 function notice(message) {
   const element = document.getElementById('notice');
@@ -23,14 +39,14 @@ function notice(message) {
 }
 
 function render() {
-  const shown = gifts.filter(g => state.filter === 'all' || (state.filter === 'free' && !state.taken.has(g.id)) || (state.filter === 'creative' && g.category === 'Творчество') || (state.filter === 'nado' && g.category === 'Nado') || (state.filter === 'sport' && g.category === 'Одежда и спорт'));
+  const shown = gifts.filter(g => state.filter === 'all' || (state.filter === 'free' && !state.taken.has(g.id)) || (state.filter === 'games' && g.category === 'Игры') || (state.filter === 'nado' && g.category === 'Nado') || (state.filter === 'screechers' && g.category === 'Скритчеры') || (state.filter === 'other' && !['Игры','Nado','Скритчеры'].includes(g.category)));
   document.getElementById('count').textContent = state.ready ? `${gifts.length - state.taken.size} свободно из ${gifts.length}` : 'Брони недоступны';
   document.getElementById('empty').hidden = shown.length !== 0;
   document.getElementById('gifts').innerHTML = shown.map((g, index) => {
     const selected = state.taken.has(g.id);
     const own = selected && mine(g.id);
     const label = state.busy === g.id ? 'Сохраняем…' : own ? 'Отменить мой выбор' : selected ? 'Уже выбрали' : 'Забронировать';
-    return `<article class="card ${selected ? 'selected' : ''}"><div class="visual ${escapeHTML(g.color)}" aria-hidden="true"><span class="number">${String(index + 1).padStart(2, '0')}</span><span class="symbol">${escapeHTML(g.symbol)}</span><span class="corner">✳</span><span class="poster-label">${escapeHTML(posterLabel(g.category))}</span></div><div class="card-body"><div class="badges"><span>${escapeHTML(g.category)}</span></div><h3>${escapeHTML(g.title)}</h3><p class="detail">${escapeHTML(g.detail)}</p><p class="price">${money(g.price)}${g.approx ? '<small> ориентир</small>' : ''}</p><a class="shop" href="${escapeHTML(g.url)}" target="_blank" rel="noopener noreferrer">${g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'}</a><div class="reservation"><button class="reserve ${own ? 'own' : ''}" data-gift="${escapeHTML(g.id)}" ${!state.ready || state.busy || (selected && !own) ? 'disabled' : ''}>${label}</button><span class="status ${selected ? 'taken' : 'free'}">${own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>`;
+    return `<article class="card ${selected ? 'selected' : ''}"><div class="visual ${escapeHTML(g.color)}" aria-hidden="true"><span class="number">${String(index + 1).padStart(2, '0')}</span><span class="symbol">${escapeHTML(g.symbol)}</span><span class="corner">✳</span><span class="poster-label">${escapeHTML(posterLabel(g.category))}</span></div><div class="card-body"><div class="badges"><span>${escapeHTML(g.category)}</span></div><h3>${escapeHTML(g.title)}</h3><p class="detail">${escapeHTML(g.detail)}</p><p class="price">${money(g.price, g.priceLabel)}${g.approx ? '<small> ориентир</small>' : ''}</p><a class="shop" href="${escapeHTML(g.url)}" target="_blank" rel="noopener noreferrer">${g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'}</a><div class="reservation"><button class="reserve ${own ? 'own' : ''}" data-gift="${escapeHTML(g.id)}" ${!state.ready || state.busy || (selected && !own) ? 'disabled' : ''}>${label}</button><span class="status ${selected ? 'taken' : 'free'}">${own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>`;
   }).join('');
 }
 

@@ -2,10 +2,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { gifts, type Gift } from './wishlist-data';
 
-type Filter = 'all' | 'free' | 'creative' | 'nado' | 'sport';
+type Filter = 'all' | 'free' | 'games' | 'nado' | 'screechers' | 'other';
 const key = (id: string) => `lev-wishlist-2026:${id}`;
-const posterLabel = (category: Gift['category']) => ({'Творчество':'придумай сам','Nado':'волчки в бой!','Одежда и спорт':'для приключений'})[category];
-const money = (amount?: number) => amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'До 2000 ₽ — проверь цену';
+const posterLabel = (category: Gift['category']) => ({'Творчество':'придумай сам','Игры':'давай играть!','Nado':'волчки в бой!','Скритчеры':'переворот!','Одежда и спорт':'для приключений','Впечатления':'сюрприз!'})[category];
+const money = (amount?: number, label?: string) => label || (amount ? `${new Intl.NumberFormat('ru-RU').format(amount)} ₽` : 'Уточни цену');
 
 export default function Home() {
   const [taken, setTaken] = useState<Set<string>>(new Set());
@@ -29,7 +29,7 @@ export default function Home() {
     window.addEventListener('focus', onFocus);
     return () => { clearTimeout(initial); clearInterval(timer); window.removeEventListener('focus', onFocus); };
   }, [refresh]);
-  const shown = useMemo(() => gifts.filter(g => filter === 'all' || (filter === 'free' && !taken.has(g.id)) || (filter === 'creative' && g.category === 'Творчество') || (filter === 'nado' && g.category === 'Nado') || (filter === 'sport' && g.category === 'Одежда и спорт')), [filter, taken]);
+  const shown = useMemo(() => gifts.filter(g => filter === 'all' || (filter === 'free' && !taken.has(g.id)) || (filter === 'games' && g.category === 'Игры') || (filter === 'nado' && g.category === 'Nado') || (filter === 'screechers' && g.category === 'Скритчеры') || (filter === 'other' && !['Игры','Nado','Скритчеры'].includes(g.category))), [filter, taken]);
 
   async function choose(g: Gift) {
     if (!ready || busy || (taken.has(g.id) && !mine.has(g.id))) return;
@@ -55,11 +55,11 @@ export default function Home() {
   return <main>
     <div className="topline"><span>ЛЁВИН ВИШ-ЛИСТ</span><span>✳</span><span>7 ЛЕТ · 2026</span></div>
     <section className="hero"><div className="hero-copy"><p className="eyebrow">✦ ПОДАРКИ ОТ ДРУЗЕЙ ✦</p><h1>Что подарить<br/><em>Лёве?</em></h1><p className="lead">Он любит головоломки, настолки, покемонов, волчки и всякие штуки, с которыми можно экспериментировать.</p><div className="hero-note"><span>✳</span><p>Выбери подарок и нажми <strong>«Забронировать»</strong> — остальные сразу увидят, что он занят. Вход не нужен.</p></div></div><div className="hero-art" aria-hidden="true"><i className="orbit a"/><i className="orbit b"/><span className="star a">✦</span><span className="star b">✳</span><strong>7</strong><small>LET’S PLAY!</small></div></section>
-    <section className="content"><div className="intro"><div><p className="kicker">МНОГО ХОРОШИХ ИДЕЙ</p><h2>Выбирай, что нравится</h2></div><div className="count">{ready ? `${gifts.length - taken.size} свободно из ${gifts.length}` : 'Обновляем брони…'}</div></div><p className="deadline">Подарки нужны в Петербурге <strong>к 4 декабря</strong>. Цены ориентировочные: проверь размер, наличие и доставку в магазине.</p>
-    <div className="filters" role="group" aria-label="Фильтр подарков">{([['all','Все'],['free','Свободные'],['creative','Творчество'],['nado','Волчки'],['sport','Для спорта']] as const).map(([id,title]) => <button key={id} className={filter === id ? 'filter active' : 'filter'} onClick={() => setFilter(id)} aria-pressed={filter === id}>{title}</button>)}</div>
+    <section className="content"><div className="intro"><div><p className="kicker">МНОГО ХОРОШИХ ИДЕЙ</p><h2>Выбирай, что нравится</h2></div><div className="count">{ready ? `${gifts.length - taken.size} свободно из ${gifts.length}` : 'Обновляем брони…'}</div></div>
+    <div className="filters" role="group" aria-label="Фильтр подарков">{([['all','Все'],['free','Свободные'],['games','Игры'],['nado','Волчки'],['screechers','Скритчеры'],['other','Остальное']] as const).map(([id,title]) => <button key={id} className={filter === id ? 'filter active' : 'filter'} onClick={() => setFilter(id)} aria-pressed={filter === id}>{title}</button>)}</div>
     {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Закрыть сообщение">×</button></div>}
-    <div className="grid">{shown.map((g, index) => { const selected = taken.has(g.id); const own = selected && mine.has(g.id); return <article className={`card ${selected ? 'selected' : ''}`} key={g.id}><div className={`visual ${g.color}`} aria-hidden="true"><span className="number">{String(index+1).padStart(2,'0')}</span><span className="symbol">{g.symbol}</span><span className="corner">✳</span><span className="poster-label">{posterLabel(g.category)}</span></div><div className="card-body"><div className="badges"><span>{g.category}</span></div><h3>{g.title}</h3><p className="detail">{g.detail}</p><p className="price">{money(g.price)}{g.approx && <small> ориентир</small>}</p><a className="shop" href={g.url} target="_blank" rel="noopener noreferrer">{g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'}</a><div className="reservation"><button className={own ? 'reserve own' : 'reserve'} disabled={!ready || !!busy || (selected && !own)} onClick={() => void choose(g)}>{busy === g.id ? 'Сохраняем…' : own ? 'Отменить мой выбор' : selected ? 'Уже выбрали' : 'Забронировать'}</button><span className={selected ? 'status taken' : 'status free'}>{own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>; })}</div>
+    <div className="grid">{shown.map((g, index) => { const selected = taken.has(g.id); const own = selected && mine.has(g.id); return <article className={`card ${selected ? 'selected' : ''}`} key={g.id}><div className={`visual ${g.color}`} aria-hidden="true"><span className="number">{String(index+1).padStart(2,'0')}</span><span className="symbol">{g.symbol}</span><span className="corner">✳</span><span className="poster-label">{posterLabel(g.category)}</span></div><div className="card-body"><div className="badges"><span>{g.category}</span></div><h3>{g.title}</h3><p className="detail">{g.detail}</p><p className="price">{money(g.price, g.priceLabel)}{g.approx && <small> ориентир</small>}</p><a className="shop" href={g.url} target="_blank" rel="noopener noreferrer">{g.search ? 'Поиск подходящей модели' : 'Посмотреть товар'}</a><div className="reservation"><button className={own ? 'reserve own' : 'reserve'} disabled={!ready || !!busy || (selected && !own)} onClick={() => void choose(g)}>{busy === g.id ? 'Сохраняем…' : own ? 'Отменить мой выбор' : selected ? 'Уже выбрали' : 'Забронировать'}</button><span className={selected ? 'status taken' : 'status free'}>{own ? 'Твой выбор' : selected ? 'Занято' : 'Свободно'}</span></div></div></article>; })}</div>
     {!shown.length && <p className="empty">Здесь пока пусто. Выбери другой фильтр.</p>}</section>
-    <footer><span>✳</span><p>Если выбрал подарок, пожалуйста, купи его до 4 декабря. Отменить бронь можно с того же устройства и браузера.</p><span>Для Лёвы · с любовью</span></footer>
+    <footer><span>✳</span><p>Отменить бронь можно с того же устройства и браузера.</p><span>Для Лёвы · с любовью</span></footer>
   </main>;
 }
